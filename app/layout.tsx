@@ -1,3 +1,7 @@
+import { Analytics } from '#/components/analytics'
+import { TailwindIndicator } from '#/components/tailwind-indicator'
+import { ThemeProvider } from '#/components/theme-provider'
+import { Toaster } from '#/components/toaster'
 import { cn } from '#/lib/utils'
 import './globals.css'
 import type { Metadata } from 'next'
@@ -24,7 +28,16 @@ export default function RootLayout({
           
         )}
       >
-        
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <div className="flex min-h-screen flex-col">
+         
+{children}
+</div>
+<Analytics/>
+        </ThemeProvider>
+        <Toaster/>
+        <TailwindIndicator/>
+
       </body>
     </html>
   )
