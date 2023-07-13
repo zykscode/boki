@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {}
 
-const Page = (props: Props) => {
+function Page({}: Props) {
   return (
     <div>Page</div>
   )
