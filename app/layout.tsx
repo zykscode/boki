@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { Analytics } from '#/components/analytics';
+import { SiteFooter } from '#/components/footer';
 import Header from '#/components/header';
 import { TailwindIndicator } from '#/components/tailwind-indicator';
 import { ThemeProvider } from '#/components/theme-provider';
@@ -34,8 +35,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col">
             <Header />
-
-            {children}
+            <main className="min-h-[calc(100vh-80px)] flex-1 bg-item_brown ">
+              {children}
+            </main>
+            <SiteFooter />
           </div>
           <Analytics />
         </ThemeProvider>

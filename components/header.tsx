@@ -10,13 +10,11 @@ import { cn } from '#/lib/utils';
 import { buttonVariants } from './ui/button';
 import { MainNav } from './ui/main-nav';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   const segment = useSelectedLayoutSegment();
 
   return (
-    <header className="container z-40 bg-background">
+    <header className="container sticky top-0 z-40 bg-background/70 backdrop-blur-sm">
       <div className="flex h-20 items-center justify-between py-6">
         <MainNav items={mainNav.mainNav} />
         {mainNav.mainNav?.length ? (

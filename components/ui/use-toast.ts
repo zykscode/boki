@@ -1,3 +1,8 @@
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable default-case */
+/* eslint-disable @typescript-eslint/no-shadow */
 // Inspired by react-hot-toast library
 import * as React from 'react';
 
@@ -52,6 +57,8 @@ interface State {
 }
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+
+let memoryState: State = { toasts: [] };
 
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
@@ -123,11 +130,6 @@ export const reducer = (state: State, action: Action): State => {
       };
   }
 };
-
-const listeners: Array<(state: State) => void> = [];
-
-let memoryState: State = { toasts: [] };
-
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action);
   listeners.forEach((listener) => {
@@ -135,6 +137,7 @@ function dispatch(action: Action) {
   });
 }
 
+const listeners: Array<(state: State) => void> = [];
 interface Toast extends Omit<ToasterToast, 'id'> {}
 
 function toast({ ...props }: Toast) {

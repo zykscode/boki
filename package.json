@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+
+    "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore",
+       "lint": "next lint"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.1.4",
