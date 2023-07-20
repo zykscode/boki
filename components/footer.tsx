@@ -1,21 +1,20 @@
+import Link from 'next/link';
+
+import { siteConfig } from '#/config/site';
 import { cn } from '#/lib/utils';
+
+import { Icons } from './icons';
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <footer className={cn(className)}>
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className={cn(className, 'w-full bg-item_pink')}>
+      <div className="mx-auto  p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" className="flex items-center">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="mr-3 h-8"
-                alt="FlowBite Logo"
-              />
-              <span className="self-center whitespace-nowrap text-2xl font-semibold">
-                Flowbite
-              </span>
-            </a>
+            <Link href="/" className=" flex items-center space-x-2">
+              <Icons.logo />
+              <span className=" inline-block font-bold">{siteConfig.name}</span>
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
