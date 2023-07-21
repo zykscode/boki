@@ -33,7 +33,7 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="container flex min-h-screen flex-col">
+          <div className="container flex min-h-screen flex-col overflow-hidden bg-primary">
             <Header />
             <main className="min-h-[calc(100vh-80px)] flex-1 bg-item_brown ">
               {children}
